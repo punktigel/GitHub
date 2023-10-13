@@ -42,3 +42,24 @@ Result:
 ```
 Hi {your_name}! You've successfully authenticated, but GitHub does not provide shell access.
 ```
+
+
+### Personal access token (PAT)
+- Create a PAT (Treat PATs like a password)
+    - fine-grained personal access token (recommended by GitHub)
+    - personal access token (classic)
+
+- [Create a fine-grained (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)
+
+1. Verify your email address
+1. Go to ```Settings```
+1. Go to ```Developer settings```
+1. Click on ```Personal access token``` > ```Fine-grained tokens```
+1. Generate new token
+1. Select ```Permissions```
+
+
+- Clone a GitHub repository with a PAT
+```
+git clone https://{USER}:{PAT}@github.com/{REPOSITORY}
+```
