@@ -45,10 +45,51 @@
 A--B--E         *main                                   A--B--E---F     *main
 ```
 
+### Sharing and Updating Projects
+
+| Commands   | Info
+|:-----------|:-----
+|```git fetch``` | Downloads missing local commits
+|```git pull```| Update changes from a remote repository (git fetch; git merge OR git rebase)
+|```git pull origin <branch_name>```| Update changes from a specified remote repository
+|```git push```| Push commited files to a remote repository with the name of the current repository
+|```git push origin <branch_name>```| Push commited files to a specified remote repository
+|```git remote add origin <URL>``` | Add a remote repository
+
+
+### Inspection and Comparision
+
+| Commands   | Info
+|:-----------|:-----
+|```git log```| Show commit log
+|```git log --graph```| Show the git graph on the left side (Can print extra lines between commits)
+|```git log --pretty='format:<format_string>```| Customize shown information
+| ``` git log --pretty=format:'%C(bold red)%h%Creset %C(bold green)[%cr]%Creset - %C(bold)%s %C(bold blue)<%an>%Creset' ``` | Example commit log: commit hash [commit date relative] - commit message <author name>
+
+| format_string | Info
+|:--------------|:------
+| %n    | newline
+| %Cred/green/blue | Switch to color red/green/blue
+| %Creset | Reset color
+| %H    | Commit hash (%h - abbreviated commit hash)
+| %an   | Author name
+| %cr   | Relative commit date
+| %s    | Commit msg
+
+
+### Patching
+| Commands   | Info
+|:-----------|:-----
+|```git cherry-pick <commit_1> .. <commit_2>``` | Copy specified commits to the HEAD
+|```git cherry-pick <branch_name>``` | Copy last commit (<branch_name>~0) of the branch to the HEAD
+|```git rebase <branch_name>``` | Copy commits of the current branch to <branch_name>
+|```git rebase -i <branch_name>``` | Open window with commits to copy to <branch_name>
+
+
 
 ### [Git graph](https://en.wikipedia.org/wiki/Git#Data_structures)
 ```
-------------|           |---------------------------------------------------|
+|-----------|           |---------------------------------------------------|
 | Remote    |           | Local                                             |
 |-----------|           |---------------------------------------------------|
 |           |           | Clone     | Branches      | Working Files         |
