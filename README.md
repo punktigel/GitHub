@@ -38,11 +38,39 @@
 |```git checkout -b <branch_name>``` | Create and switch to a new branch
 |```git merge <branch_name>``` | Merge <branch_name> into current branch
 
+- **Merge** (Add the merge commit to the current branch)
 ```
                                 git merge branch1
      C--D       branch1                                      C--D       branch1
     /                                                       /    \
 A--B--E         *main                                   A--B--E---F     *main
+
+
+
+                                git merge main
+     C--D       *branch1                                      C--D---F   <-- *branch1
+    /                                                       /       /
+A--B--E         main                                   A--B--------E    <-- main
+```
+
+
+- **Rebase** (Rebase commits from the current branch to the specified branch)
+```
+                                                            branch1
+                                git rebase branch1              v
+     C--D       branch1                                      C--D--E'   <-- *main
+    /                                                       /
+A--B--E         *main                                   A--B
+
+
+
+
+                                git rebase main
+     C--D       *branch1                                     
+    /                                                       
+A--B--E         main                                    A--B--E--C--D   <-- *branch1
+                                                              ^
+                                                            main
 ```
 
 ### Sharing and Updating Projects
